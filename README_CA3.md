@@ -18,7 +18,11 @@
  ### Default changes
  - Make sure that the IDE enables _maven_ and _persistence_
  - Delete or refactor _RenameMe_, _FacadeExample_ and _RenameResource_ to reflect the current project
-
+ - Run the class _SetupTestUsers_ to populate the DB
+ - Copy the DB to remote droplet
+   - SQL scripts -> SQL generator -> Run SQL in droplet terminal to create framework
+   - Copy test data as needed
+ 
  ### Deployment setup
  - Change the default remote server in `pom.xml`
    `<remote.server>https://__INSERT URL TO DOMAIN (example.com)__/manager/text</remote.server>`
@@ -43,3 +47,14 @@
  - Add tomcat environment variables to project on travis so the project can be automatically deployed
    - key: `REMOTE_USER` &ensp; value: `"script_user"`
    - key: `REMOTE_PW` &ensp; value: `"PW_FOR_script_user"`
+
+ ### Frontend setup
+ - Clone frontend project from <https://github.com/emilgth/CA3-Front>
+ - Install npm
+   - `npm install`
+ - Change the domains in _settings.js_ to match your own endpoints
+ - Build the project
+ - Deploy frontend using surge
+   - In a terminal run `surge`
+   - add `build` to path
+   - Choose a name for the domain
